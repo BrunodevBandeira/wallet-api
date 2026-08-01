@@ -5,6 +5,10 @@ server:
 spring:
   application:
     name: hr-payroll
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
 eureka:
   client:
     service-url:

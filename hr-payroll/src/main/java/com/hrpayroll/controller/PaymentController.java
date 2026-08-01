@@ -23,9 +23,4 @@ public class PaymentController {
         Payment payment = service.getPayment(workerId, days);
         return ResponseEntity.ok(payment);
     }
-
-    public ResponseEntity<Payment> getPaymentAlternative(Long workerId, Integer days) {
-        Payment payment = new Payment("Brann", 400.0, days);
-        return ResponseEntity.ok(payment);
-    }
 }

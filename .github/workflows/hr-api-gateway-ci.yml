@@ -1,0 +1,26 @@
+name: hr-api-gateway CI
+
+on:
+  push:
+    paths:
+      - "hr-api-gateway/**"
+      - ".github/workflows/hr-api-gateway-ci.yml"
+  pull_request:
+    paths:
+      - "hr-api-gateway/**"
+      - ".github/workflows/hr-api-gateway-ci.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: hr-api-gateway
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+      - run: chmod +x mvnw && ./mvnw -B verify
